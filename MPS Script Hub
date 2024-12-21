@@ -1,0 +1,234 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "MPS GUI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Ball Teleports"
+})
+
+Tab:AddButton({
+	Name = "VCL",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+-- Script Settings
+local distanceLimit = 7 -- Reach Distance / TP Distance
+local key = Enum.KeyCode.E -- Button / Keybind
+local ballName = "VCL" -- Ball Name (Found in dex explorer)
+local tool = "Tackle" -- Tool
+
+-- DON'T EDIT ANYTHING UNDER
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local mouse = player:GetMouse()
+local equippedConnection = nil
+local equipped = false
+
+local function onEquipped()
+    if not equipped then
+        equippedConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+            if not gameProcessed then
+                if input.KeyCode == key then
+                    local character = player.Character
+                    if character then
+                        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                        if humanoidRootPart then
+                            for _, child in ipairs(workspace.Balls:GetChildren()) do
+                                if child.Name == ballName then
+                                    if (child.Position - humanoidRootPart.Position).magnitude <= distanceLimit then
+                                        child.CFrame = humanoidRootPart.CFrame
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+        equipped = true
+        print("Equipped Tool")
+    end
+end
+
+local function onUnequipped()
+    if equippedConnection then
+        equippedConnection:Disconnect()
+        equippedConnection = nil
+    end
+    equipped = false
+    print("UnEquipped Tool")
+end
+
+player.Backpack.ChildAdded:Connect(function(child)
+    if child.Name == tool then
+        equipped = false
+        onUnequipped()
+        print("UnEquipped Tool")
+    end
+end)
+
+player.Backpack.ChildRemoved:Connect(function(child)
+    if child.Name == tool then
+        onEquipped()
+    end
+end)
+
+print("Script Executed!")
+
+Tab:AddButton({
+	Name = "PEFL",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+-- Script Settings
+local distanceLimit = 7 -- Reach Distance / TP Distance
+local key = Enum.KeyCode.E -- Button / Keybind
+local ballName = "PEFL" -- Ball Name (Found in dex explorer)
+local tool = "Tackle" -- Tool
+
+-- DON'T EDIT ANYTHING UNDER
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local mouse = player:GetMouse()
+local equippedConnection = nil
+local equipped = false
+
+local function onEquipped()
+    if not equipped then
+        equippedConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+            if not gameProcessed then
+                if input.KeyCode == key then
+                    local character = player.Character
+                    if character then
+                        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                        if humanoidRootPart then
+                            for _, child in ipairs(workspace.Balls:GetChildren()) do
+                                if child.Name == ballName then
+                                    if (child.Position - humanoidRootPart.Position).magnitude <= distanceLimit then
+                                        child.CFrame = humanoidRootPart.CFrame
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+        equipped = true
+        print("Equipped Tool")
+    end
+end
+
+local function onUnequipped()
+    if equippedConnection then
+        equippedConnection:Disconnect()
+        equippedConnection = nil
+    end
+    equipped = false
+    print("UnEquipped Tool")
+end
+
+player.Backpack.ChildAdded:Connect(function(child)
+    if child.Name == tool then
+        equipped = false
+        onUnequipped()
+        print("UnEquipped Tool")
+    end
+end)
+
+player.Backpack.ChildRemoved:Connect(function(child)
+    if child.Name == tool then
+        onEquipped()
+    end
+end)
+
+print("Script Executed!")
+
+Tab:AddButton({
+	Name = "RFF",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+-- Script Settings
+local distanceLimit = 7 -- Reach Distance / TP Distance
+local key = Enum.KeyCode.E -- Button / Keybind
+local ballName = "RFF" -- Ball Name (Found in dex explorer)
+local tool = "Tackle" -- Tool
+
+-- DON'T EDIT ANYTHING UNDER
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local mouse = player:GetMouse()
+local equippedConnection = nil
+local equipped = false
+
+local function onEquipped()
+    if not equipped then
+        equippedConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+            if not gameProcessed then
+                if input.KeyCode == key then
+                    local character = player.Character
+                    if character then
+                        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                        if humanoidRootPart then
+                            for _, child in ipairs(workspace.Balls:GetChildren()) do
+                                if child.Name == ballName then
+                                    if (child.Position - humanoidRootPart.Position).magnitude <= distanceLimit then
+                                        child.CFrame = humanoidRootPart.CFrame
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+        equipped = true
+        print("Equipped Tool")
+    end
+end
+
+local function onUnequipped()
+    if equippedConnection then
+        equippedConnection:Disconnect()
+        equippedConnection = nil
+    end
+    equipped = false
+    print("UnEquipped Tool")
+end
+
+player.Backpack.ChildAdded:Connect(function(child)
+    if child.Name == tool then
+        equipped = false
+        onUnequipped()
+        print("UnEquipped Tool")
+    end
+end)
+
+player.Backpack.ChildRemoved:Connect(function(child)
+    if child.Name == tool then
+        onEquipped()
+    end
+end)
+
+print("Script Executed!")
+
+OrionLib:Init()
