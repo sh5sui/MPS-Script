@@ -83,8 +83,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
     end
 end)
 
-print("Script Executed!")
-
 Tab:AddButton({
 	Name = "PEFL",
 	Callback = function()
@@ -155,8 +153,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
         onEquipped()
     end
 end)
-
-print("Script Executed!")
 
 Tab:AddButton({
 	Name = "RFF",
@@ -229,8 +225,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
     end
 end)
 
-print("Script Executed!")
-
 Tab:AddButton({
 	Name = "VRF",
 	Callback = function()
@@ -301,8 +295,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
         onEquipped()
     end
 end)
-
-print("Script Executed!")
 
 Tab:AddButton({
 	Name = "AIFA",
@@ -375,8 +367,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
     end
 end)
 
-print("Script Executed!")
-
 Tab:AddButton({
 	Name = "VEF",
 	Callback = function()
@@ -448,8 +438,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
     end
 end)
 
-print("Script Executed!")
-
 Tab:AddButton({
 	Name = "WFA",
 	Callback = function()
@@ -520,8 +508,6 @@ player.Backpack.ChildRemoved:Connect(function(child)
         onEquipped()
     end
 end)
-
-print("Script Executed!")
 
 Tab:AddButton({
 	Name = "URFL",
