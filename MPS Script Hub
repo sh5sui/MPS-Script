@@ -660,7 +660,7 @@ player.Backpack.ChildRemoved:Connect(function(child)
 end)
 
 local Tab = Window:MakeTab({
-	Name = "Firetouch-InDev",
+	Name = "Firetouch",
 	Icon = "",
 	PremiumOnly = false
 })
@@ -671,6 +671,230 @@ Tab:AddButton({
       		print("In Development!")
   	end    
 })
+
+_G.Magnitude = 5
+_G.Enabled = true
+
+-- DONT TOUCH ANYTHING BELOW THIS
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local rightLeg = player.Character["Right Leg"]
+local leftLeg = player.Character["Left Leg"]
+local leftArm = player.Character["Left Arm"]
+local rightArm = player.Character["Right Arm"]
+local torso = player.Character.Torso
+local head = player.Character.Head
+
+local function fireTouch()
+    if _G.Path ~= nil and _G.Enabled == true then
+        for _, obj in pairs(_G.Path:GetChildren()) do
+            if obj:IsA("BasePart") and obj.Name == "MPS" then -- Changed to "MPS"
+                local distanceRightLeg = (obj.Position - rightLeg.Position).magnitude
+                local distanceLeftLeg = (obj.Position - leftLeg.Position).magnitude
+
+                if distanceRightLeg <= _G.Magnitude or distanceLeftLeg <= _G.Magnitude then
+                    -- Trigger interactions for both feet
+                    if distanceRightLeg <= _G.Magnitude then
+                        firetouchinterest(rightLeg, obj, 0)
+                        wait()
+                        firetouchinterest(rightLeg, obj, 1)
+                    end
+
+                    if distanceLeftLeg <= _G.Magnitude then
+                        firetouchinterest(leftLeg, obj, 0)
+                        wait()
+                        firetouchinterest(leftLeg, obj, 1)
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function checkForNewBalls()
+    while true do
+        wait(1) -- Adjust the interval as needed
+        if _G.Enabled == true then
+            local ballsFolder = game.Workspace:FindFirstChild("Pitch")
+            if ballsFolder then
+                ballsFolder = ballsFolder:FindFirstChild("Balls")
+                if ballsFolder then
+                    for _, obj in pairs(ballsFolder:GetChildren()) do
+                        if obj:IsA("BasePart") and obj.Name == "MPS" then -- Changed to "MPS"
+                            _G.Path = ballsFolder -- Set to Balls folder containing MPS parts
+                            fireTouch()
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function main()
+    mouse.KeyDown:Connect(function()
+        if _G.Enabled == true then
+            fireTouch()
+        end
+    end)
+
+    spawn(checkForNewBalls)
+end
+
+_G.Path = game.Workspace:FindFirstChild("Pitch"):FindFirstChild("Balls")
+main()
+
+
+Tab:AddButton({
+	Name = "URFL",
+	Callback = function()
+      		print("In Development!")
+  	end    
+})
+
+_G.Magnitude = 5
+_G.Enabled = true
+
+-- DONT TOUCH ANYTHING BELOW THIS
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local rightLeg = player.Character["Right Leg"]
+local leftLeg = player.Character["Left Leg"]
+local leftArm = player.Character["Left Arm"]
+local rightArm = player.Character["Right Arm"]
+local torso = player.Character.Torso
+local head = player.Character.Head
+
+local function fireTouch()
+    if _G.Path ~= nil and _G.Enabled == true then
+        for _, obj in pairs(_G.Path:GetChildren()) do
+            if obj:IsA("BasePart") and obj.Name == "URFL" then -- Changed to "URFL"
+                local distanceRightLeg = (obj.Position - rightLeg.Position).magnitude
+                local distanceLeftLeg = (obj.Position - leftLeg.Position).magnitude
+
+                if distanceRightLeg <= _G.Magnitude or distanceLeftLeg <= _G.Magnitude then
+                    -- Trigger interactions for both feet
+                    if distanceRightLeg <= _G.Magnitude then
+                        firetouchinterest(rightLeg, obj, 0)
+                        wait()
+                        firetouchinterest(rightLeg, obj, 1)
+                    end
+
+                    if distanceLeftLeg <= _G.Magnitude then
+                        firetouchinterest(leftLeg, obj, 0)
+                        wait()
+                        firetouchinterest(leftLeg, obj, 1)
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function checkForNewBalls()
+    while true do
+        wait(1) -- Adjust the interval as needed
+        if _G.Enabled == true then
+            local ballsFolder = game.Workspace:FindFirstChild("Pitch")
+            if ballsFolder then
+                ballsFolder = ballsFolder:FindFirstChild("Balls")
+                if ballsFolder then
+                    for _, obj in pairs(ballsFolder:GetChildren()) do
+                        if obj:IsA("BasePart") and obj.Name == "URFL" then -- Changed to "URFL"
+                            _G.Path = ballsFolder -- Set to Balls folder containing URFL parts
+                            fireTouch()
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function main()
+    mouse.KeyDown:Connect(function()
+        if _G.Enabled == true then
+            fireTouch()
+        end
+    end)
+
+    spawn(checkForNewBalls)
+end
+
+_G.Path = game.Workspace:FindFirstChild("Pitch"):FindFirstChild("Balls")
+main()
+
+Tab:AddButton({
+	Name = "VRF",
+	Callback = function()
+      		print("In Development!")
+  	end    
+})
+
+_G.Magnitude = 5
+_G.Enabled = true
+
+-- DONT TOUCH ANYTHING BELOW THIS
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local rightLeg = player.Character["Right Leg"]
+local leftLeg = player.Character["Left Leg"]
+
+local function fireTouch()
+    if _G.Path ~= nil and _G.Enabled == true then
+        for _, obj in pairs(_G.Path:GetChildren()) do
+            if obj:IsA("BasePart") and obj.Name == "VRF" then
+                local distanceRightLeg = (obj.Position - rightLeg.Position).magnitude
+                local distanceLeftLeg = (obj.Position - leftLeg.Position).magnitude
+
+                -- Trigger interactions only if within _G.Magnitude range
+                if distanceRightLeg <= _G.Magnitude then
+                    firetouchinterest(rightLeg, obj, 0)
+                    wait()
+                    firetouchinterest(rightLeg, obj, 1)
+                end
+
+                if distanceLeftLeg <= _G.Magnitude then
+                    firetouchinterest(leftLeg, obj, 0)
+                    wait()
+                    firetouchinterest(leftLeg, obj, 1)
+                end
+            end
+        end
+    end
+end
+
+local function checkForNewBalls()
+    while true do
+        wait(1) -- Adjust the interval as needed
+        if _G.Enabled == true then
+            local ballsFolder = game.Workspace:FindFirstChild("Balls")
+            if ballsFolder then
+                _G.Path = ballsFolder -- Set to Balls folder containing VRF parts
+            end
+        end
+    end
+end
+
+local function main()
+    mouse.KeyDown:Connect(function()
+        if _G.Enabled == true then
+            fireTouch()
+        end
+    end)
+
+    spawn(checkForNewBalls)
+end
+
+_G.Path = game.Workspace:FindFirstChild("Balls")
+main()
+
 
 print ("SOME ASPECTS MAY BE BUGGY AKA FIRETOUCH AS IT'S IN DEVELOPMENT")
 
